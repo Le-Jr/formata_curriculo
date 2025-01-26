@@ -13,7 +13,6 @@ Este projeto é um MVP (Produto Mínimo Viável) para gerar currículos formatad
 - **Flask**: Framework web utilizado para criar a aplicação.
 - **PyMongo**: Biblioteca para integrar o MongoDB com o Flask, usada para armazenar os dados do currículo.
 - **LaTeX**: Usado para gerar o PDF formatado do currículo.
-- **UUID**: Gerado automaticamente para cada currículo, garantindo unicidade no banco de dados.
 
 ## Estrutura de Diretórios
 

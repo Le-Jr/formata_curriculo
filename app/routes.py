@@ -9,7 +9,12 @@ def homepage():
     if request.method == "POST":
         name = request.form.get("name")
         email = request.form.get("email")
-        create_curriculum(name, email)
-        print(f"Nome: {name} email: {email}")
+        celphone = request.form.get("celphone")
+        experience = request.form.get("experience")
+        resume = request.form.get("resume")
+
+
+        create_curriculum(name, email, celphone, experience, resume)
+        print(f"Nome: {name} email: {email} Celular: {celphone} experiência: {experience} resumo: {resume}")
 
     return render_template('index.html') 

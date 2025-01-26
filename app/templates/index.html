@@ -18,11 +18,29 @@
         <form action="" method="post">
           <div class="form-control">
             <label for="name">Nome:</label>
-            <input type="text" name="name" class="form-control" />
+            <input type="text" name="name" class="form-control" required />
           </div>
           <div class="form-control mt-4 mb-2">
             <label for="email">Email:</label>
-            <input type="text" name="email" class="form-control" />
+            <input type="text" name="email" class="form-control" required />
+          </div>
+          <div class="form-control mt-4 mb-2">
+            <label for="celphone">Celular:</label>
+            <input type="text" name="celphone" class="form-control" required />
+          </div>
+
+          <div class="form-control mt-4 mb-2">
+            <label for="experience">Experiência:</label>
+            <input
+              type="text"
+              name="experience"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-control mt-4 mb-2">
+            <label for="resume">Resumo:</label>
+            <input type="text" name="resume" class="form-control" required />
           </div>
           <button type="submit" class="btn btn-primary">Enviar</button>
         </form>

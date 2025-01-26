@@ -8,11 +8,14 @@ def init_mongo(app):
     mongo = PyMongo(app)
 
 
-def create_curriculum(name, email):
+def create_curriculum(name, email, celphone, experience, resume):
     curriculum = {
         "id": str(uuid4()),
         "name": name,
         "email": email,
+        "celphone": celphone,
+        "expericence": experience,
+        "resume": resume,
     }
 
     mongo.db.curriculos.insert_one(curriculum)

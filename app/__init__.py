@@ -1,9 +1,8 @@
 from flask import Flask
 from .routes import main
-from flask_pymongo import PyMongo
 from .config import Config
+from .services.curriculum_service import init_mongo
 
-mongo = PyMongo()
 
 
 
@@ -12,7 +11,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    mongo.init_app(app)
+    init_mongo(app)
 
     app.register_blueprint(main) 
     return app

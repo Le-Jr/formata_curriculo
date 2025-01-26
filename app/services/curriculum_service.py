@@ -1,5 +1,12 @@
-from app import mongo
+from flask_pymongo import PyMongo
 from uuid import uuid4
+
+mongo = None
+
+def init_mongo(app):
+    global mongo
+    mongo = PyMongo(app)
+
 
 def create_curriculum(name, email):
     curriculum = {
@@ -8,5 +15,5 @@ def create_curriculum(name, email):
         "email": email,
     }
 
-    mongo.db.insert_one(curriculum)
+    mongo.db.curriculos.insert_one(curriculum)
     return curriculum

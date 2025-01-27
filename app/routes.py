@@ -1,6 +1,7 @@
-from flask import render_template, Blueprint, request
+from flask import redirect, render_template, Blueprint, request, send_file, send_from_directory, url_for
 from app.services.curriculum_service import create_curriculum
 from uuid import uuid4
+from .curriculum_form import generate_curriculum
 
 main = Blueprint('main', __name__)
 
@@ -16,5 +17,14 @@ def homepage():
 
         create_curriculum(name, email, celphone, experience, resume)
         print(f"Nome: {name} email: {email} Celular: {celphone} experiência: {experience} resumo: {resume}")
+        
+        pdf_path = generate_curriculum(name, email, celphone, experience, resume)
+        # print(f"PDF gerado em: {pdf_path}")
+        # redirect = url_for('download')
 
-    return render_template('index.html') 
+    return render_template('index.html')
+
+
+@main.route("/download/<pdf_path>")
+def download(pdf_path):
+    return send_from_directory(pdf_path, as_attachment=True)

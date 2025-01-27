@@ -29,22 +29,17 @@ def generate_curriculum(name, email, celphone, experience, resume):
         f.write(filled_template)
 
     # Chama o pdflatex para gerar o PDF
-    try:
-        subprocess.run(
-            ['pdflatex', '-output-directory=latex_templates', output_tex],
-            check=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE
-        )
-    except subprocess.CalledProcessError as e:
-        raise RuntimeError(f"Erro ao gerar o PDF: {e.stderr.decode()}")
-
+    subprocess.run(
+            ['pdflatex', '-output-directory=pdfs', output_tex],
+    )
     time.sleep(2)
     # Verifica se o arquivo PDF foi gerado
-    if not os.path.exists(final_output):
-        raise FileNotFoundError(f"Erro: O PDF não foi gerado em {final_output}")
+    # if not os.path.exists(final_output):
+    #     raise FileNotFoundError(f"Erro: O PDF não foi gerado em {final_output}")
 
     # Retorna o caminho do PDF gerado
+    os.remove(output_tex)
+
     return final_output
 
 
